@@ -1,28 +1,38 @@
 {
-  "name": "api-gateway",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": false,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "dependencies": {
-    "cors": "^2.8.6",
+    "amqplib": "^2.0.1",
+    "axios": "^1.19.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "zod": "^4.4.3"
+    "express-rate-limit": "^8.6.2",
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
+    "@types/amqplib": "^0.10.8",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^26.2.0",
-    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   }
 }
