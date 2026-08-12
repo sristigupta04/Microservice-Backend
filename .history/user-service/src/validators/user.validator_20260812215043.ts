@@ -9,9 +9,13 @@ export interface JwtPayload {
 export const generateToken = (
   payload: JwtPayload
 ): string => {
-  return jwt.sign(payload, env.JWT_SECRET, {
-    expiresIn: "1d",
-  });
+  return jwt.sign(
+    payload,
+    env.JWT_SECRET,
+    {
+      expiresIn: "1d",
+    }
+  );
 };
 
 export const verifyToken = (

@@ -20,4 +20,4 @@ export const env = {
     process.env.JWT_SECRET || "",
 };
 
-console.log("GATEWAY SECRET LENGTH:", env.JWT_SECRET.length);
+console.log("GATEWAY JWT SECRET:", env.JWT_SECRET);

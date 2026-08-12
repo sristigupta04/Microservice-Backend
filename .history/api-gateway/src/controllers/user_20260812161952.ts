@@ -79,4 +79,3 @@ export const getUserController = async (
   } catch (error) {
     next(error);
   }
-};

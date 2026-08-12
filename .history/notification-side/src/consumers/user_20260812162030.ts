@@ -1,15 +1,8 @@
-import {
-  Channel,
-  ConsumeMessage,
-} from "amqplib";
-
-import { getChannel } from "../config/mq";
-
 const EXCHANGE_NAME = "user.events";
 const QUEUE_NAME = "notification.user";
 
-export const startUserConsumer = async (): Promise<void> => {
-  const channel: Channel = getChannel();
+export const startUserConsumer = async () => {
+  const channel = getChannel();
 
   await channel.assertExchange(
     EXCHANGE_NAME,
@@ -28,9 +21,9 @@ export const startUserConsumer = async (): Promise<void> => {
     "user.created"
   );
 
-  await channel.consume(
+  channel.consume(
     QUEUE_NAME,
-    (message: ConsumeMessage | null) => {
+    (message) => {
       if (!message) return;
 
       try {
@@ -38,7 +31,10 @@ export const startUserConsumer = async (): Promise<void> => {
           message.content.toString()
         );
 
-        console.log("User event received:", data);
+        console.log(
+          "User event received:",
+          data
+        );
 
         channel.ack(message);
       } catch (error) {

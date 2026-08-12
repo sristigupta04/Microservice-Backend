@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "User microservice",
   "main": "dist/server.js",
-  "scripts": {
-    "dev": "tsx src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js",
+   "scripts": {
+  "dev": "tsx src/server.ts",
+  "build": "tsc",
+  "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
+   }
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

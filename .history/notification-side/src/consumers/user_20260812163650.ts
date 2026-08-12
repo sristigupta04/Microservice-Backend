@@ -38,7 +38,10 @@ export const startUserConsumer = async (): Promise<void> => {
           message.content.toString()
         );
 
-        console.log("User event received:", data);
+        console.log(
+          "User event received:",
+          data
+        );
 
         channel.ack(message);
       } catch (error) {

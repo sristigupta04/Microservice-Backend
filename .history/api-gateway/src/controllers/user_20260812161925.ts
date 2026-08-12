@@ -60,20 +60,14 @@ export const loginController = async (
 };
 
 export const getUserController = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const userId = String(req.params.id);
 
-    const authHeader = req.headers.authorization!;
-    const token = authHeader.split(" ")[1];
-
-    const result = await getUserById(
-      userId,
-      token
-    );
+    const result = await getUserById(userId);
 
     return res.status(200).json(result);
   } catch (error) {

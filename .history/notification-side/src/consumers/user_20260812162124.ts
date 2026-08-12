@@ -1,9 +1,5 @@
-import {
-  Channel,
-  ConsumeMessage,
-} from "amqplib";
-
-import { getChannel } from "../config/mq";
+import { Channel, ConsumeMessage } from "amqplib";
+import { getChannel } from "../config/rabbitmq";
 
 const EXCHANGE_NAME = "user.events";
 const QUEUE_NAME = "notification.user";
@@ -38,7 +34,10 @@ export const startUserConsumer = async (): Promise<void> => {
           message.content.toString()
         );
 
-        console.log("User event received:", data);
+        console.log(
+          "User event received:",
+          data
+        );
 
         channel.ack(message);
       } catch (error) {
